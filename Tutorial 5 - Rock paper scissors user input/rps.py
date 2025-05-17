@@ -24,8 +24,8 @@ playerchoice = input("Enter...\n1 for Rock,\n2 for Paper,\n3 for Scissors:\n\n")
 # Casting the choice to an int for error handling.
 player = int(playerchoice)
 
-# Handle incorrect input.
-if player < 1 | player > 3:
+# Handle incorrect input. CHANGED TO OR FROM | IN TUTORIAL 6
+if player < 1 or player > 3:
     sys.exit("Incorrect input, please input 1, 2, or 3.")
 
 # Get the computer choice.
