@@ -1,200 +1,72 @@
-print()
-# Dictionaries - Used to store data values that are in key value pairs. 
-band = {
-    "vocals": "Plant",
-    "guitar": "Page"
-}
+# While loops
 
-# Constructor for dictionary
-band2 = dict(vocals = "Plant", guitar = "Page")
+# value = 1
+# while value < 10:
+#     print(value)
+#     # when value = 5, stop. 
+#     if value == 5:
+#         break
+#     value += 1
 
-# Both print out the same structures.
-print(band)
-print(band2)
-print()
+# Continue function
+# value = 1
+# while value < 10:
+#     value += 1
+#     # when value = 5, stop. 
+#     if value == 5:
+#         continue
+#     print(value)
+# else:
+#     print("Value is now equal to " + str(value))
 
-# Check the type and length of the dictionary. 
-print(type(band))
-print(len(band))
-print()
+# Lists using for loops
+names = ["Nick", "Sara", "John"]
 
-# Access items in a dictionary
-print(band["vocals"])
-print(band.get("guitar"))
-print()
+# # Can use anything in place of x. This will print all 3 names after each other. 
+# for x in names:
+#     print(x)
 
-# List all keys in the dictionary. 
-print(band.keys())
-print()
+# # this will print each individual letter in mississippi
+# for x in "Misssissippi":
+#     print(x)
 
-# List all values.
-print(band.values())
-print()
+# When x = sara, the loop stops, and only Nick is returned. 
+# for x in names:
+#     if x == "Sara":
+#         break
+#     print(x)
 
-# List of key/value pairs as tuples
-print(band.items())
-print()
+# for x in names:
+#     if x == "Sara":
+#         continue
+#     print(x)
 
-# Verify a key exists
-print("guitar" in band)
-print("triangle" in band)
-print()
+# # Starting at index of 0, we print x up to 3.
+# for x in range(4):
+#     print(x)
 
-# Change values in a dictionary. 
-band["vocals"] = "Coverdale"
-band.update({"bass": "JPJ"})
-print(band)
-print()
+# # Start at index 2, end at index 4. 
+# for x in range(2, 4):
+#     print(x)
+    
+# # Tell the loop how to increment, or how many numbers to increase/decrease by.
+# # Start at index 0, go to 100, increment by 5.  
+# for x in range(0, 100, 5):
+#     print(x)
+# else:
+#     print("Glad that\'s Over!")
 
-# Remove items - Returns last item. 
-print(band.pop("bass"))
-print(band)
-print()
+actions=["codes","eats","sleeps"]
 
-# Adds drums, bonham for the next removal using popitem.
-band["drums"] = "Bonham"
-print(band)
-print()
+# # Nested for loops. 
+# Applies action to each name first. 
+# Rotates actions first. 
+# for name in names:
+#     for action in actions:
+#         print(name + " " + action + ".")
 
-# Removes last key/value pair added to the dictionary. Returns tuple. 
-print(band.popitem())
-print(band)
-print()
-
-# Delete/clear items
-band["drums"] = "Bonham"
-del band["drums"]
-print(band)
-print()
-
-# Clearing band 2 entirely. 
-band2.clear()
-print(band2)
-print()
-
-# Completely delete band 2
-del band2
-print()
-
-# Copy dictionaries
-
-# Doesn't create copy, only reference. 
-# band2 = band
-# print("Bad copy!")
-
-# print(band2)
-# print(band)
-
-# band2["drums"] = "Dave"
-# print(band)
-
-# Example of a good copy. 
-band2 = band.copy()
-band2["drums"] = "Dave"
-print("Good copy!")
-print(band)
-print(band2)
-print()
-
-# Use of constructor for copying dictionaries. 
-band3 = dict(band)
-print("Good copy!")
-print(band3)
-print()
-
-# Nested Dictionaries 
-member1 = {
-    "name": "Plant",
-    "Instrument": "vocals"
-}
-
-member2 = {
-    "name": "Page",
-    "Instrument": "guitar"
-}
-
-band = {
-    "member1": member1,
-    "member2": member2
-}
-
-# Print the band that contains the nested dictionaries of member1 and member 2
-print(band)
-
-# Print specific elements of the nested dictionaries. 
-print(band["member1"]["name"])
-print()
-
-# Sets
-# Example of a set
-nums = {1,2,3,4}
-# Constructor function
-nums2 = set((1,2,3,4))
-
-print()
-print(nums)
-print(nums2)
-print(type(nums))
-print(len(nums))
-
-# No duplicates allowed in sets. will only show one two from below. 
-nums3 = {1, 2, 2, 3}
-print(nums3)
-print()
-
-# True value is a dupe of 1, false is a dupe of 0
-
-# This will print False, 1, 2, 3, 4. 
-# True will be ignored, and 0 will be ignored. 
-# False comes first, the set is always ordered. 
-nums4 = {1, True, 2, False, 5, 3, 4, 0}
-print(nums4)
-print()
-
-# Check if value in set
-print(2 in nums4)
-print()
-
-# Cannot refer to an element in a set with an index position, or a key. 
-
-# Adding element to sets. 
-nums4.add(8)
-print(nums4)
-print()
-
-# Remove elements from sets. 
-nums4.remove(8)
-print(nums4)
-print()
-
-# Add elements from another set to another set. 
-morenums = {5, 6, 7}
-nums4.update(morenums)
-print(nums4)
-print()
-
-# Can use update with lists, tuples, and dictionaries.
-
-
-# merge 2 sets to create a new set. 
-setone = {1, 2, 3}
-settwo = {5, 6, 7}
-newset = setone.union(settwo)
-print(newset)
-print()
-
-# Keep only duplicates of two separate sets. This changes the first set to only include
-# duplicates from both sets. 
-setone = {1, 2, 3, 5, 7, 9, 11, 12}
-settwo = {2, 5, 11, 12}
-setone.intersection_update(settwo)
-print(setone)
-print()
-
-# Keep everything except duplicates. Modifies original input. 
-setone = {1, 2, 3, 5, 7, 9, 11, 12}
-settwo = {2, 5, 11, 12}
-setone.symmetric_difference_update(settwo)
-print(setone)
-print()
-
+# Applies code to each name before moving to next action. 
+# Rotates names first.
+for action in actions:
+    for name in names:
+        print(name + " " + action + ".")
