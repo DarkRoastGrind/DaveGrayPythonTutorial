@@ -73,25 +73,13 @@ def rps():
         # Function for printing out game results.
         def game_counts():
             print(
-                "\nGame Count: "
-                + str(game_count)
-                + "\nPlayer Wins: "
-                + str(player_wins)
-                + "\nComputer Wins: "
-                + str(computer_wins)
-                + "\nDraws: "
-                + str(draw_count)
+                f"\nGame Count: {str(game_count)}\n Player Wins: {str(player_wins)}\n Computer Wins: {str(computer_wins)}\n Draws: {str(draw_count)}"
             )
 
         # Function for returning the input to the player.
         def input_feedback():
             print(
-                "\nYou chose "
-                + str(RPS(player)).replace("RPS.", "")
-                + "."
-                + "\nThe computer chose "
-                + str(RPS(computer)).replace("RPS.", "")
-                + "."
+                f"\nYou chose {str(RPS(player)).replace("RPS.", "")}.\nThe computer chose {str(RPS(computer)).replace("RPS.", "")}."
             )
 
         # Get user input.
