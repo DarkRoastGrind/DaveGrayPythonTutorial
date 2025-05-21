@@ -1,32 +1,41 @@
 import sys
 import random
-from enum import Enum
 
 
 def gng(name='PlayerOne'):
-    player_choice = 0
     player_wins = 0
     computer_wins = 0
     game_count = 0
 
     def play_gng():
         nonlocal name
-        nonlocal player_choice
         nonlocal player_wins
         nonlocal computer_wins
         nonlocal game_count
+        player_choice = 0
+        computer_choice = 0
 
-        computer_number = random.choice("123")
-        computer = int(computer_number)
+        def player_input():
+            nonlocal player_choice
 
-        def game_counts():
-            print(
-                f"\nGame Count: {game_count}\n{name}'s Wins: {player_wins}\nComputer Wins: {computer_wins}\n{name}'s winning Percentage: {player_wins/game_count:.2%}"
+            player_choice = input(
+                f"\n{name}, guess which number I'm thinking of... 1, 2, or 3.\n"
             )
+
+            if player_choice not in ["1", "2", "3"]:
+                print(
+                    f"\n{name}, incorrect input, please input a choice from 1 to 3!")
+                return play_gng()
+
+            return player_choice
+
+        def computer_choice():
+            computer_number = random.choice("123")
+            return computer_number
 
         def input_feedback():
             print(
-                f"\n{name}, you chose {player_choice}.\nI was thinking {computer_number}."
+                f"\n{name}, you chose {player_choice}.\nI was thinking {computer_choice}."
             )
 
         def decide_winner(player, computer):
@@ -55,14 +64,13 @@ def gng(name='PlayerOne'):
                 computer_wins += 1
                 return computer_win_message()
 
-        player_choice = input(
-            f"\n{name}, guess which number I'm thinking of... 1, 2, or 3.\n"
-        )
-        if player_choice not in ["1", "2", "3"]:
-            print(f"\n{name}, incorrect input, please input a choice from 1 to 3!")
-            return play_gng()
-        player = int(player_choice)
+        def game_counts():
+            print(
+                f"\nGame Count: {game_count}\n{name}'s Wins: {player_wins}\nComputer Wins: {computer_wins}\n{name}'s winning Percentage: {player_wins/game_count:.2%}"
+            )
 
+        player = int(player_input())
+        computer = int(computer_choice())
         input_feedback()
         decide_winner(player, computer)
         game_counts()
@@ -84,7 +92,7 @@ def gng(name='PlayerOne'):
             return play_gng()
         else:
             print("\nThank you for playing!\n")
-            sys.exit(f"Goodbye {name}!")
+            return
 
     return play_gng
 
