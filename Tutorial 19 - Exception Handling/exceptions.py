@@ -5,12 +5,13 @@
 # x is undefined, and will output an error.
 # The try except will allow the program to continue.
 
-# --------------------undefined variable NameError--------------------
-print("\nTesting NameError using an undefined variable...")
-try:
-    print(x)
-except NameError:
-    print('NameError: Something is probably undefined, fucker.\n')
+# COMMENTED OUT TO PREVENT YELLOW WARNINGS IN IDE
+# # --------------------undefined variable NameError--------------------
+# print("\nTesting NameError using an undefined variable...")
+# try:
+#     print(x)
+# except NameError:
+#     print('NameError: Something is probably undefined, fucker.\n')
 
 # --------------------Arithmetic error handling. x/0 is bad error.--------------------
 print("\nTesting ZeroDivisionError by dividing x by 0...")
